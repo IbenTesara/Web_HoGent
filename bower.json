@@ -1,0 +1,28 @@
+{
+  "name": "Les3",
+  "authors": [
+    "Iben Van de Veire <iben.vandeveire.r1234@student.hogent.be>"
+  ],
+  "description": "",
+  "main": "app.js",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ng-repeat-owl-carousel": "*"
+  }
+}
