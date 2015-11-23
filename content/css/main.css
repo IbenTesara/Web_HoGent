@@ -1,0 +1,70 @@
+#nav {
+
+	list-style: outside none none;
+	margin: 0px;
+}
+
+.fixed{
+	position: fixed;
+	left: 0px;
+	background-color: #0f0f0a;
+	height: 2em;
+	width: 100%;
+	font: #E0E0E0;
+}
+
+#top{
+	top:0px;
+}
+
+#bottom{
+	bottom:0px;
+}
+
+#logo{
+	float: left;
+	margin-right: 90%;
+	font: #E0E0E0;
+}
+
+#navlist li {
+
+float: left;
+margin-right: 1em;
+margin-top: 0.3em;
+
+}
+
+.nav{
+	height: 1.5em;
+	width: 1.5em;
+}
+
+#start{
+
+	background-image: url("../img/thehollowheart.jpg");
+	background-size: 100% 99%;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 1000px;
+	padding-top: 54.166666666667%;
+    height: 0;
+
+}
+
+#slider{
+
+	padding-top:10em;
+	height:1000px;
+	text-align: center;
+	background-image: url("../img/background_repeat.png");
+	background-repeat: repeat;
+}
+
+#right{
+	float:right;
+}
+
+#left{
+	float:left;
+}

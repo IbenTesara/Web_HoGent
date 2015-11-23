@@ -4,6 +4,8 @@ app.controller('VideoCTRL', [
 	function($scope, videos){
 		$scope.videos = videos.videos
         $scope.currentID=0;
+        $scope.left=true;
+        $scope.right=false;
 		$scope.addPost = function(){
             if(!$scope.title || $scope.title === ''){
                 return;
@@ -26,12 +28,18 @@ app.controller('VideoCTRL', [
         $scope.nextVideo = function(){
             if ( $scope.currentID + 1 <= $scope.videos.length ) {
                 $scope.currentID++;
+                $scope.right=true;
+            } else {
+                $scope.left=false;
             }
         };
 
          $scope.previousVideo = function(){
             if ( $scope.currentID -  1 >= $scope.videos.length ) {
                 $scope.currentID--;
+                $scope.left=true;
+            } else{
+                $scope.right=false;
             }
         };
 
