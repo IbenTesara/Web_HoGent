@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>My Angular App!</title>
+        <title>The Hollow Heart</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -8,36 +8,65 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>
 		<script src="app.js"></script>
-        <script src="videoCTRL.js"></script>
+        <script src="controllers/videoCTRL.js"></script>
 		<style type="text/css">
 			.glypicon-thumbs-up {cursor:pointer;}
 		</style>
+    <link rel="stylesheet" href="../content/css/main.css">
     </head>
 
     <body ng-app="TheHollowHeart">
     </br>
 
-    <div class="row">
-    	<div class="col-md-6 cold-md-offset-3">
-	<ui-view></ui-view>
- <div>
- </div>
+
+    <div class="fixed" id="top">
+
+        <div id="logo">
+
+            <p>V</p>
+
+        </div>
+
+        <div id="navlist">
+
+            <ul id="nav">
+
+                <li><a  href="https://www.facebook.com/TheHollowHeartBE/?fref=ts"><img class="nav" src="../content/img/facebook.png" alt="Facebook"></a></li>
+
+                <li><a  href="https://twitter.com/thehollowheart_"><img class="nav" src="../content/img/twitter.png" alt="Twitter"></a></li>
+
+                <li><a href="https://www.youtube.com/channel/UCNpNZ9m2_8EmnBag5HCX5_Q/feed"><img class="nav"  src="../content/img/youtube.png" alt="YouTube"></a></li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+
+
+        <div id="start">
+
+
+
+        <div/>
+
+
+<div class="fixed" id="bottom">
+
 </div>
 
-<script type="text/ng-template" id="/home.html">
+<div id="slider" ng-controller="VideoCTRL">
 
-
-<div id="slider">
-
-<p ng-repeat="video in videos" ng-if="video.id == currentID ">{{video.title}} - upvotes : {{video.upvotes}}</p>
+<h1 ng-repeat="video in videos" ng-if="video.id == currentID ">{{video.title}} - upvotes : {{video.upvotes}}</h1>
+<button id="left" ng-disabled="{{left}}" ng-click="previousVideo()">previous</button>
 <object ng-repeat="video in videos" ng-if="video.id == currentID" data="{{video.link}}"
    width="560" height="315"></object>
-
-<br/>
-<button ng-click="nextVideo()">next</button>
-<button ng-click="previousVideo()">previous</button>
-
+<button id="right" ng-disabled="{{right}}" ng-click="nextVideo()">next</button>
 </div>
+
+
 
 
 
@@ -58,7 +87,11 @@
  </div>
 
 
- </div>
-</script>
+
+
+
+
+
+
     </body>
 </html>
