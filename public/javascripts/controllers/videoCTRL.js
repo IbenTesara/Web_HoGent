@@ -58,8 +58,8 @@ app.factory('videos', function(){
     var o = {
         videos: [
             {title: 'Euphoria', link:'http://www.youtube.com/embed/SpQarGyANIU', id:0 ,upvotes: 0},
-            {title: 'Euphoria1', link:'http://www.youtube.com/embed/SpQarGyANIU',id:1 ,upvotes: 0},
-            {title: 'Euphoria2', link:'http://www.youtube.com/embed/SpQarGyANIU', id:2 ,upvotes: 0}
+            {title: 'Euphoria1', link:'http://www.youtube.com/embed/SpQarGyANIU',id:1 ,upvotes: 0,artist:'Loureen- Covered by THH'},
+            {title: 'Euphoria2', link:'http://www.youtube.com/embed/SpQarGyANIU', id:2 ,upvotes: 0, artist:'Loureen - Covered by THH',description:'This is a cover of Euphoria.'}
         ]
     };
     return o;

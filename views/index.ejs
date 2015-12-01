@@ -53,42 +53,50 @@
         <div/>
 
 
-<div class="fixed" id="bottom">
+<div class="fixed" id="bottom"></div>
 
-</div>
+
 
 <div id="slider" ng-controller="VideoCTRL">
 
-<h1 ng-repeat="video in videos" ng-if="video.id == currentID ">{{video.title}} - upvotes : {{video.upvotes}}</h1>
 
-<button id="left" ng-disabled="isDisabledLeft()" ng-click="previousVideo()">previous</button>
 
-<object ng-repeat="video in videos" ng-if="video.id == currentID" data="{{video.link}}"
-   width="560" height="315"></object>
+<div ng-repeat="video in videos" ng-if="video.id==currentID">
 
-<button id="right" ng-disabled="isDisabledRight()" ng-click="nextVideo()">next</button>
+<div class="left"  id="info">
+<h3> {{video.title}}</h3>
+
+<h4> Upvotes :</h4>
+{{video.upvotes}}
+
+<div ng-show="video.artist!=null">
+<h4>Creator :</h4>
+{{video.artist}}
+</div>
+<div ng-show="video.description!=null">
+<h4>Description:</h4>
+{{video.description}}
+</div>
+
+
+</div>
+
+<div class="right" id="video">
+
+<object data="{{video.link}}"
+   id="videoobject"></object>
+
+</div>
+
+</div>
+
+<button ng-disabled="isDisabledLeft()" ng-click="previousVideo()" class="navbutton"> << Previous</button>
+<button ng-disabled="isDisabledRight()" ng-click="nextVideo()" class="navbutton">Next >> </button>
+
 
 </div>
 
 
-
-
-
-
-    <div id="admin-panel" ng-show="false">
-
-    <h2>Add Post</h2>
-    <div class="form-group">
-
-<form ng-submit="addPost()" style="margin-top:30px">
-    <input class="form-control" type="text" placeholder="Title" ng-model="title"/>
-</br>
-    <input class="form-control"type="text" placeholder="Link" ng-model="link"/>
-</br>
-
-    <button type="submit">Post</button>
- </form>
- </div>
 
 
 
