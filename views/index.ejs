@@ -9,6 +9,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>
 		<script src="/javascripts/angularApp.js"></script>
         <script src="/javascripts/controllers/videoCTRL.js"></script>
+        <script src="/services/VideoService.js"></script>
 		<style type="text/css">
 			.glypicon-thumbs-up {cursor:pointer;}
 		</style>
@@ -66,9 +67,6 @@
 <div class="left"  id="info">
 <h3> {{video.title}}</h3>
 
-<h4> Upvotes :</h4>
-{{video.upvotes}}
-
 <div ng-show="video.artist!=null">
 <h4>Creator :</h4>
 {{video.artist}}
@@ -99,6 +97,38 @@
 
 
 
+ <div id="admin-panel"  ng-controller="VideoCTRL">
+
+    <h2>Add VideoPost</h2>
+    <div class="form-group">
+
+<form ng-submit="addVideo()" style="margin-top:30px">
+    <input class="form-control" type="text" placeholder="Title" ng-model="title"/>
+</br>
+    <input class="form-control"type="text" placeholder="Artist" ng-model="artist"/>
+</br>
+    <input class="form-control"type="text" placeholder="Description" ng-model="description"/>
+</br>
+    <input class="form-control"type="text" placeholder="Link" ng-model="link"/>
+</br>
+    <button type="submit">Post</button>
+ </form>
+
+
+    <h2>Add EventPost</h2>
+    <div class="form-group">
+
+<form ng-submit="addEvent()" style="margin-top:30px">
+    <input class="form-control" type="text" placeholder="EventTitle" ng-model="eventtitle"/>
+</br>
+    <input class="form-control"type="text" placeholder="Playdate" ng-model="eventdescription"/>
+</br>
+    <input class="form-controll" type="checkbox" name="played" ng-model="Played" ng-true-value="true" ng-false-value="false"/> <label for="played">Played ?</label>
+</br>
+    <button type="submit">Post</button>
+ </form>
+
+ </div>
 
 
 

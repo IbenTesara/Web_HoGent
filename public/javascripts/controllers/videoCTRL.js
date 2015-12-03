@@ -1,29 +1,26 @@
 app.controller('VideoCTRL', [
 	'$scope',
-    'videos',
-	function($scope, videos){
-		$scope.videos = videos.videos
+    'videoService',
+	function($scope, videoService){
+		$scope.videos = videoService.videos
         $scope.currentID=0;
 
 
-		$scope.addPost = function(){
-            if(!$scope.title || $scope.title === ''){
-                return;
-            }
-            $scope.videos.push({
+		$scope.addVideo = function(){
+           
+            videoService.create({
                 title: $scope.title,
+                date : new Date(),
                 link: $scope.link,
-                upvotes: 0,
+                artist: $scope.artist,
+                description: $scope.description,
             });
+
             $scope.title = "";
             $scope.link = "";
+            $scope.artist ="";
+            $scope.description="";
 		};
-
-
-        $scope.incrementUpvotes = function(video){
-            video.upvotes++;
-        };
-
 
 
         $scope.nextVideo = function(){
@@ -52,15 +49,7 @@ app.controller('VideoCTRL', [
             return result;
         }
 
+
+
 	}]);
 
-app.factory('videos', function(){
-    var o = {
-        videos: [
-            {title: 'Euphoria', link:'http://www.youtube.com/embed/SpQarGyANIU', id:0 ,upvotes: 0},
-            {title: 'Euphoria1', link:'http://www.youtube.com/embed/SpQarGyANIU',id:1 ,upvotes: 0,artist:'Loureen- Covered by THH'},
-            {title: 'Euphoria2', link:'http://www.youtube.com/embed/SpQarGyANIU', id:2 ,upvotes: 0, artist:'Loureen - Covered by THH',description:'This is a cover of Euphoria.'}
-        ]
-    };
-    return o;
-});

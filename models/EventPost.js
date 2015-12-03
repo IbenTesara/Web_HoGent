@@ -1,13 +1,12 @@
+
 var mongoose = require('mongoose');
 
-var EvenPostSchema = new mongoose.Schema({
+var EventPostSchema = new mongoose.Schema({
 
-	title : String,
-	date : Date,
+	title: String,
+	date: Date,	
 	playDate : Date,
-	played : boolean,
-	upvotes: {type : Number, default:0}
-
+	played : Boolean
 })
 
-mongoose.model('EventPost','EventPostSchema')
+mongoose.model('EventPost',EventPostSchema)

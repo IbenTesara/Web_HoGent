@@ -5,7 +5,8 @@ var VideoPostSchema = new mongoose.Schema({
 	title: String,
 	date: Date,
 	link : String,
-	upvotes: {type: Number, default:0}
+	artist: String,
+	description: String
 })
 
 mongoose.model('VideoPost',VideoPostSchema)
