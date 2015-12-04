@@ -9,6 +9,10 @@ var mongoose = require('mongoose');
 require('./models/VideoPost');
 require('./models/EventPost');
 
+var passport=require('passport');
+require('./models/User');
+require('./config/passport');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -31,6 +35,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(passport.initialize());
 
 app.use('/', routes);
 app.use('/users', users);
