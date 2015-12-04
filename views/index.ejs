@@ -9,7 +9,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>
 		<script src="/javascripts/angularApp.js"></script>
         <script src="/javascripts/controllers/videoCTRL.js"></script>
+        <script src="/javascripts/controllers/authCTRL.js"></script>
+        <script src="/javascripts/controllers/navCTRL.js"></script>
         <script src="/services/VideoService.js"></script>
+        <script src="/services/AuthService.js"></script>
 		<style type="text/css">
 			.glypicon-thumbs-up {cursor:pointer;}
 		</style>
@@ -20,11 +23,11 @@
     </br>
 
 
-    <div class="fixed" id="top">
+    <div class="fixed" id="top" ng-controller="navCTRL">
 
         <div id="logo">
+<p>v</p>
 
-            <p>V</p>
 
         </div>
 
@@ -53,8 +56,6 @@
 
         <div/>
 
-
-<div class="fixed" id="bottom"></div>
 
 
 
@@ -97,7 +98,7 @@
 
 
 
- <div id="admin-panel"  ng-controller="VideoCTRL">
+ <div id="admin-panel" ng-controller="VideoCTRL">
 
     <h2>Add VideoPost</h2>
     <div class="form-group">
@@ -129,6 +130,19 @@
  </form>
 
  </div>
+
+
+
+
+
+
+<div class="fixed" id="bottom"></div>
+
+
+
+
+
+
 
 
 

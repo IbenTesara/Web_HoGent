@@ -8,6 +8,10 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 require('./models/VideoPost');
 require('./models/EventPost');
+require('./models/User');
+
+var passport= require('passport');
+require('./config/passport');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -16,6 +20,8 @@ var users = require('./routes/users');
 
 var app = express();
 
+
+mongoose.connect('mongodb://localhost/thehollowheart');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,6 +34,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(passport.initialize());
 
 app.use('/', routes);
 app.use('/users', users);
@@ -64,5 +72,5 @@ app.use(function(err, req, res, next) {
 });
 
 
-mongoose.connect('mongodb://localhost/thehollowheart');
+
 module.exports = app;
