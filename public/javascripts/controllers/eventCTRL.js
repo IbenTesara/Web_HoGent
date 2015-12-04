@@ -1,33 +1,32 @@
-app.controller('VideoCTRL', [
+app.controller('EventCTRL', [
 	'$scope',
-    'videoService',
-	function($scope, videoService){
-		$scope.videos = videoService.videos;
+    'eventService',
+	function($scope, eventService){
+		$scope.events = eventService.events;
         $scope.currentID=0;
 
-		$scope.addVideo = function(){
+		$scope.addEvent = function(){
            
-            videoService.create({
+            eventService.create({
                 title: $scope.title,
                 date : new Date(),
-                link: $scope.link,
-                artist: $scope.artist,
+                playDate: $scope.date,
                 description: $scope.description,
+                played : $scope.played,
             });
 
             $scope.title = "";
-            $scope.link = "";
-            $scope.artist ="";
-            $scope.description="";
-            $scope.videos=videoService.videos;
+            $scope.description = "";
+            $scope.played = false;
+            $scope.playDate="";
 		};
 
 
-        $scope.nextVideo = function(){
+        $scope.nextEvent = function(){
            $scope.currentID++;
         };
 
-         $scope.previousVideo = function(){
+         $scope.previousEvent= function(){
            $scope.currentID--;
         };
 

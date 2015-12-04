@@ -1,4 +1,4 @@
-app.factory('videoService', ['$http', 'auth', function($http){
+app.factory('videoService', ['$http', function($http){
 
 	var videoServiceFactory={
 		videos:[]
@@ -9,19 +9,18 @@ app.factory('videoService', ['$http', 'auth', function($http){
     return $http.get('/videos').then(function(data){
       console.log(data);
       angular.copy(data, videoServiceFactory.videos);
+      console.log(videoServiceFactory.videos);
     });
   };
 
    function create(video) {
-  return $http.post('/videos', video, {
-
-    headers:{Authorization: 'Bearer ' +auth.getToken()}
-  }
+  return $http.post('/videos', video
 
     ).then(function(data){
     console.log(data);
     videoServiceFactory.videos.push(data);
     console.log(videoServiceFactory.videos);
+    getAll();
   });
 };
 
