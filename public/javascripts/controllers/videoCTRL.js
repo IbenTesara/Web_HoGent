@@ -2,13 +2,7 @@ app.controller('VideoCTRL', [
 	'$scope',
     'videoService',
 	function($scope, videoService){
-		$scope.videos = [
-
-        {title: 'Euphoria', date: new Date(), artist: 'Loreen', link: 'https://www.youtube.com/embed/SpQarGyANIU', description:'A cover of Loreens Euphoria, made by The Hollow Heart.', id:0},
-        {title: 'What is Love', date: new Date(), artist: 'Haddaway', link: 'https://www.youtube.com/embed/Lp_U0T4LF8w', description:'A cover of What is Love by Haddaway, made by The Hollow Heart',id:1},
-        {title: 'New Kids', date: new Date(), artist: 'The Hollow Heart', link: 'https://www.youtube.com/embed/MuXfl-VSvx0', description:'The first single of The Hollow Heart.',id:2}
-
-        ];
+		$scope.videos = videoService.videos;
         $scope.currentID=0;
         var nextId = 3;
 
