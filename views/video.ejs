@@ -1,0 +1,12 @@
+<div id="slider" ng-controller="VideoCTRL">
+
+<h1 ng-repeat="video in videos" ng-if="video.id == currentID ">{{video.title}} - upvotes : {{video.upvotes}}</h1>
+
+<button id="left" ng-disabled="isDisabledLeft()" ng-click="previousVideo()">previous</button>
+
+<object ng-repeat="video in videos" ng-if="video.id == currentID" data="{{video.link}}"
+   width="560" height="315"></object>
+
+<button id="right" ng-disabled="isDisabledRight()" ng-click="nextVideo()">next</button>
+
+</div>

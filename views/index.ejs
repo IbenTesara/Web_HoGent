@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <title>The Hollow Heart</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>
+		<script src="/javascripts/angularApp.js"></script>
+        <script src="/javascripts/controllers/videoCTRL.js"></script>
+        <script src="/services/VideoService.js"></script>
+		<style type="text/css">
+			.glypicon-thumbs-up {cursor:pointer;}
+		</style>
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    </head>
+
+    <body ng-app="TheHollowHeart">
+    </br>
+
+
+    <div class="fixed" id="top">
+
+        <div id="logo">
+
+            <p>V</p>
+
+        </div>
+
+        <div id="navlist">
+
+            <ul id="nav">
+
+                <li><a  href="https://www.facebook.com/TheHollowHeartBE/?fref=ts"><img class="nav" src="/images/facebook.png" alt="Facebook"></a></li>
+
+                <li><a  href="https://twitter.com/thehollowheart_"><img class="nav" src="/images/twitter.png" alt="Twitter"></a></li>
+
+                <li><a href="https://www.youtube.com/channel/UCNpNZ9m2_8EmnBag5HCX5_Q/feed"><img class="nav"  src="/images/youtube.png" alt="YouTube"></a></li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+
+
+        <div id="start">
+
+
+
+        <div/>
+
+
+<div class="fixed" id="bottom"></div>
+
+
+
+<div id="slider" ng-controller="VideoCTRL">
+
+
+
+<div ng-repeat="video in videos" ng-if="video.id==currentID">
+
+<div class="left"  id="info">
+<h3> {{video.title}}</h3>
+
+<div ng-show="video.artist!=null">
+<h4>Creator :</h4>
+{{video.artist}}
+</div>
+<div ng-show="video.description!=null">
+<h4>Description:</h4>
+{{video.description}}
+</div>
+
+
+</div>
+
+<div class="right" id="video">
+
+<object data="{{video.link}}"
+   id="videoobject"></object>
+
+</div>
+
+</div>
+
+<button ng-disabled="isDisabledLeft()" ng-click="previousVideo()" class="navbutton"> << Previous</button>
+<button ng-disabled="isDisabledRight()" ng-click="nextVideo()" class="navbutton">Next >> </button>
+
+
+</div>
+
+
+
+
+ <div id="admin-panel"  ng-controller="VideoCTRL">
+
+    <h2>Add VideoPost</h2>
+    <div class="form-group">
+
+<form ng-submit="addVideo()" style="margin-top:30px">
+    <input class="form-control" type="text" placeholder="Title" ng-model="title"/>
+</br>
+    <input class="form-control"type="text" placeholder="Artist" ng-model="artist"/>
+</br>
+    <input class="form-control"type="text" placeholder="Description" ng-model="description"/>
+</br>
+    <input class="form-control"type="text" placeholder="Link" ng-model="link"/>
+</br>
+    <button type="submit">Post</button>
+ </form>
+
+
+    <h2>Add EventPost</h2>
+    <div class="form-group">
+
+<form ng-submit="addEvent()" style="margin-top:30px">
+    <input class="form-control" type="text" placeholder="EventTitle" ng-model="eventtitle"/>
+</br>
+    <input class="form-control"type="text" placeholder="Playdate" ng-model="eventdescription"/>
+</br>
+    <input class="form-controll" type="checkbox" name="played" ng-model="Played" ng-true-value="true" ng-false-value="false"/> <label for="played">Played ?</label>
+</br>
+    <button type="submit">Post</button>
+ </form>
+
+ </div>
+
+
+
+
+
+
+    </body>
+</html>
