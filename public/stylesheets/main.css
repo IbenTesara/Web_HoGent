@@ -1,6 +1,8 @@
 html {
     max-width: 100%;
     overflow-x: hidden;
+
+    font-family: "Times New Roman", Times, serif;
 }
 
 
@@ -29,9 +31,27 @@ html {
 
 #logo{
 	float: left;
-	margin-right: 90%;
+	margin-right: 82%;
 	font: #E0E0E0;
 }
+
+#logo li{
+	list-style: outside none none;
+	float: left;
+margin-right: 1em;
+margin-top: 0.3em;
+}
+
+#logo a{
+	color: #F8F8FF;
+    text-decoration: none;
+    cursor: auto;
+}
+
+#logo a:hover{
+    text-decoration: underline;
+}
+
 
 #navlist li {
 
