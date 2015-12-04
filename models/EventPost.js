@@ -5,9 +5,9 @@ var EventPostSchema = new mongoose.Schema({
 
 	title: String,
 	date: Date,	
-	playDate : Date,
+	playDate : String,
 	description: String,
-	played : Boolean,
+	
 })
 
 mongoose.model('EventPost',EventPostSchema)

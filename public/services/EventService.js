@@ -6,19 +6,16 @@ app.factory('eventService', ['$http', function($http){
 
 
    function getAll() {
-    return $http.get('/events').then(function(data){
-      console.log(data);
-      angular.copy(data, eventServiceFactory.events);
+    return $http.get('/events').then(function(response){
+      angular.copy(response.data, eventServiceFactory.events);
     });
   };
 
-   function create(event) {
-  return $http.post('/events', event
+   function create(eventx) {
+  return $http.post('/events', eventx
 
-    ).then(function(data){
-    console.log(data);
-    eventServiceFactory.events.push(data);
-    console.log(eventServiceFactory.events);
+    ).then(function(respone){
+    eventServiceFactory.events.push(respone.data);
   });
 };
 

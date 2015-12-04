@@ -19,6 +19,8 @@ app.config(['$stateProvider','$urlRouterProvider',
                     }
                 })
 
+                
+
                 .state('login', {
   url: '/login',
   templateUrl: '/login.html',

@@ -3,8 +3,8 @@ app.controller('VideoCTRL', [
     'videoService',
 	function($scope, videoService){
 		$scope.videos = videoService.videos;
-        $scope.currentID=0;
-        var nextId = 3;
+        $scope.currentID =0;
+
 
 		$scope.addVideo = function(){
            
@@ -14,14 +14,12 @@ app.controller('VideoCTRL', [
                 link: $scope.link,
                 artist: $scope.artist,
                 description: $scope.description,
-                id: nextId,
             });
 
             $scope.title = "";
             $scope.link = "";
             $scope.artist ="";
             $scope.description="";
-            nextId++;
 		};
 
 

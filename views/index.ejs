@@ -65,11 +65,35 @@
 
 
 
+
+
+<div id="welcome">
+
+<h1>Welcome to The Hollow Heart !</h1>
+
+<p>A name is just a name, but The Hollow Heart is more than just a name. It speaks to the soul and shows that even the biggest and kindest hearts can be hollow inside. To fill up this void, we use emotions like love, friendship and kindness.</p>
+
+<p>The Hollow Heart is the music-project of singer-songwriter Iben Van de Veire. Born in Bruges, this aspiring artists has a passion for music and lyrics that come from the heart. Bare-bones but soulfull, the covers and original work of The Hollow Heart are kept simple to focuss on the emotions and soul of the music.</p>
+
+<p>On this website, you can find the latest news on The Hollow Heart, including the latest videos and planned events.</p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
 <div id="slider" ng-controller="VideoCTRL">
 
 
 
-<div ng-repeat="video in videos" ng-if="video.id == currentID ">
+<div ng-repeat="video in videos" ng-if="currentID== $index">
 
 <div class="left"  id="info">
 <h3> {{video.title}}</h3>
@@ -104,6 +128,24 @@
 
 </div>
 
+<div id="events" ng-controller="EventCTRL">
+
+<div ng-repeat="eventx in events" ng-if="currentID==$index">
+
+<h1>{{eventx.title}}</h1>
+
+<h2>{{eventx.playDate}}</h2>
+
+<p>{{eventx.description}}</p>
+
+</div>
+
+
+<button ng-disabled="isDisabledLeft()" ng-click="previousEvent()" class="navbutton"> << Previous</button>
+<button ng-disabled="isDisabledRight()" ng-click="nextEvent()" class="navbutton">Next >> </button>
+
+</div>
+
 
 
 
@@ -133,23 +175,26 @@
     <div class="form-group">
 
 <form ng-submit="addEvent()" style="margin-top:30px">
-    <input class="form-control" type="text" placeholder="EventTitle" ng-model="eventtitle"/>
+    <input class="form-control" type="text" placeholder="Title" ng-model="eventtitle"/>
 </br>
-    <input class="form-control"type="text" placeholder="Playdate" ng-model="eventdescription"/>
+    <input class="form-control"type="text" placeholder="Date" ng-model="playDate"/>
 </br>
-    <input class="form-controll" type="checkbox" name="played" ng-model="Played" ng-true-value="true" ng-false-value="false"/> <label for="played">Played ?</label>
+    <input class="form-control"type="text" placeholder="Description" ng-model="eventdescription"/>
 </br>
     <button type="submit">Post</button>
  </form>
+</div> 
 
- </div>
+
+
+
 </div>
 
 
 </script>
 <script type="text/ng-template" id="/register.html">
   <div class="page-header">
-    <h1>Flapper News</h1>
+    <h1>Welcome to The Hollow Heart </h1>
   </div>
 
   <div ng-show="error" class="alert alert-danger row">
@@ -178,7 +223,7 @@
 
 <script type="text/ng-template" id="/login.html">
   <div class="page-header">
-    <h1>Flapper News</h1>
+    <h1>Welcome to the Hollow Heart !</h1>
   </div>
 
   <div ng-show="error" class="alert alert-danger row">

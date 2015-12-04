@@ -2,23 +2,24 @@ app.controller('EventCTRL', [
 	'$scope',
     'eventService',
 	function($scope, eventService){
+
+        eventService.getAll();
 		$scope.events = eventService.events;
-        $scope.currentID=0;
+        $scope.currentID =0;
+
 
 		$scope.addEvent = function(){
            
             eventService.create({
-                title: $scope.title,
+                title: $scope.eventtitle,
                 date : new Date(),
-                playDate: $scope.date,
-                description: $scope.description,
-                played : $scope.played,
+                playDate : $scope.playDate,
+                description: $scope.eventdescription,
             });
 
-            $scope.title = "";
-            $scope.description = "";
-            $scope.played = false;
+            $scope.eventtitle = "";
             $scope.playDate="";
+            $scope.eventdescription="";
 		};
 
 
@@ -26,7 +27,7 @@ app.controller('EventCTRL', [
            $scope.currentID++;
         };
 
-         $scope.previousEvent= function(){
+         $scope.previousEvent = function(){
            $scope.currentID--;
         };
 
