@@ -4,12 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>
-		<script src="/javascripts/angularApp.js"></script>
-        <script src="/javascripts/controllers/videoCTRL.js"></script>
-        <script src="/services/VideoService.js"></script>
+
 		<style type="text/css">
 			.glypicon-thumbs-up {cursor:pointer;}
 		</style>
@@ -23,8 +18,8 @@
     <div class="fixed" id="top">
 
         <div id="logo">
+<p>v</p>
 
-            <p>V</p>
 
         </div>
 
@@ -44,6 +39,15 @@
 
     </div>
 
+<div>
+<ui-view></ui-view>
+</div>
+
+<div class="fixed" id="bottom"></div>
+
+
+<script type="text/ng-template" id="/index.hml">
+
 
 
 
@@ -53,8 +57,6 @@
 
         <div/>
 
-
-<div class="fixed" id="bottom"></div>
 
 
 
@@ -97,8 +99,9 @@
 
 
 
- <div id="admin-panel"  ng-controller="VideoCTRL">
+ <div id="admin-panel" >
 
+<div ng-controller="VideoCTRL">
     <h2>Add VideoPost</h2>
     <div class="form-group">
 
@@ -113,8 +116,11 @@
 </br>
     <button type="submit">Post</button>
  </form>
+</div>  
 
 
+
+<div ng-controller="EventCTRL">
     <h2>Add EventPost</h2>
     <div class="form-group">
 
@@ -129,8 +135,22 @@
  </form>
 
  </div>
+</div>
 
 
+</script>
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>
+        <script src="/javascripts/angularApp.js"></script>
+        <script src="/javascripts/controllers/videoCTRL.js"></script>
+        <script src="/services/VideoService.js"></script>
+        <script src="/javascripts/controllers/eventCTRL.js"></script>
+        <script src="/services/EventService.js"></script>
 
 
 

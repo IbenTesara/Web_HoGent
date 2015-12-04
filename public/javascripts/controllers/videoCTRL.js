@@ -2,9 +2,8 @@ app.controller('VideoCTRL', [
 	'$scope',
     'videoService',
 	function($scope, videoService){
-		$scope.videos = videoService.videos
+		$scope.videos = videoService.videos;
         $scope.currentID=0;
-
 
 		$scope.addVideo = function(){
            
@@ -20,6 +19,7 @@ app.controller('VideoCTRL', [
             $scope.link = "";
             $scope.artist ="";
             $scope.description="";
+            $scope.videos=videoService.videos;
 		};
 
 

@@ -9,8 +9,8 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/vides', function(req, res, next) {
-  Video.find(function(err, videos){
+router.get('/videos', function(req, res, next) {
+  VideoPost.find(function(err, videos){
     if(err){ return next(err); }
 
     res.json(videos);
@@ -19,7 +19,7 @@ router.get('/vides', function(req, res, next) {
 
 
 router.post('/videos', function(req, res, next) {
-  var video = new Video(req.body);
+  var video = new VideoPost(req.body);
 
   video.save(function(err, video){
     if(err){ return next(err); }
@@ -27,6 +27,10 @@ router.post('/videos', function(req, res, next) {
     res.json(video);
   });
 });
+
+
+
+
 
 module.exports = router;
 
