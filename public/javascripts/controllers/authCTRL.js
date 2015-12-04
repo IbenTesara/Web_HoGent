@@ -1,4 +1,4 @@
-.controller('AuthCtrl', [
+app.controller('AuthCtrl', [
 '$scope',
 '$state',
 'auth',

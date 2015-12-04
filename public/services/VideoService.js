@@ -1,4 +1,4 @@
-app.factory('videoService', ['$http', function($http){
+app.factory('videoService', ['$http','auth', function($http,auth){
 
 	var videoServiceFactory={
 		videos : []
@@ -12,7 +12,9 @@ app.factory('videoService', ['$http', function($http){
   };
 
    function create(video) {
-  return $http.post('/videos', video
+  return $http.post('/videos', video,{
+    headers: {Authorization: 'Bearer '+auth.getToken()}
+  }
 
     ).then(function(response){
     videoServiceFactory.videos.push(response.data);

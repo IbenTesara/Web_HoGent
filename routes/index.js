@@ -23,7 +23,7 @@ router.get('/videos', function(req, res, next) {
 });
 
 
-router.post('/videos', function(req, res, next) {
+router.post('/videos',auth, function(req, res, next) {
   var video = new VideoPost(req.body);
 
   video.save(function(err, video){
@@ -33,7 +33,7 @@ router.post('/videos', function(req, res, next) {
   });
 });
 
-router.get('/events', function(req, res, next) {
+router.get('/events',auth, function(req, res, next) {
   EventPost.find(function(err, events){
     if(err){ return next(err); }
 

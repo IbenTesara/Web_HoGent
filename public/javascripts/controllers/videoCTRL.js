@@ -1,8 +1,10 @@
 app.controller('VideoCTRL', [
 	'$scope',
     'videoService',
-	function($scope, videoService){
+    'auth',
+	function($scope, videoService,auth){
 		$scope.videos = videoService.videos;
+        $scope.isLoggedIn = auth.isLoggedIn;
         $scope.currentID =0;
 
 

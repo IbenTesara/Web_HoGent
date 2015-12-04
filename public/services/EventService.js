@@ -1,4 +1,4 @@
-app.factory('eventService', ['$http', function($http){
+app.factory('eventService', ['$http','auth', function($http,auth){
 
 	var eventServiceFactory={
 		events:[]
@@ -12,7 +12,9 @@ app.factory('eventService', ['$http', function($http){
   };
 
    function create(eventx) {
-  return $http.post('/events', eventx
+  return $http.post('/events', eventx,{
+    headers: {Authorization: 'Bearer '+auth.getToken()}
+  }
 
     ).then(function(respone){
     eventServiceFactory.events.push(respone.data);
