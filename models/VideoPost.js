@@ -6,7 +6,8 @@ var VideoPostSchema = new mongoose.Schema({
 	date: Date,
 	link : String,
 	artist: String,
-	description: String
+	description: String,
+	id: Number,
 })
 
 mongoose.model('VideoPost',VideoPostSchema)

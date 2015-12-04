@@ -64,7 +64,7 @@
 
 
 
-<div ng-repeat="video in videos" ng-if="video.id==currentID">
+<div ng-repeat="video in videos" ng-if="video.id == currentID ">
 
 <div class="left"  id="info">
 <h3> {{video.title}}</h3>
@@ -77,9 +77,8 @@
 <h4>Description:</h4>
 {{video.description}}
 </div>
-
-
 </div>
+
 
 <div class="right" id="video">
 
@@ -89,6 +88,10 @@
 </div>
 
 </div>
+
+
+
+
 
 <button ng-disabled="isDisabledLeft()" ng-click="previousVideo()" class="navbutton"> << Previous</button>
 <button ng-disabled="isDisabledRight()" ng-click="nextVideo()" class="navbutton">Next >> </button>
