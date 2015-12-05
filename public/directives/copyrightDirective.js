@@ -2,10 +2,7 @@ app.directive('copyright', function() {
     var directive = {};
 
     directive.restrict = 'E'; 
-    directive.templateUrl = "<span>&copy; {{copyright.info}}</span";
-    directive.scope={
-    	copyright: "info"
-    }
+    directive.templateUrl = "<span>&copy; The Hollow Heart</span";
 
     return directive;
 });

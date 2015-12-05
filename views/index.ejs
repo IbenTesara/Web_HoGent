@@ -21,7 +21,6 @@
         <div id="logo" ng-controller="NavCtrl">
     <ul>
       <li><a href="/#/index">Home</a></li>
-      <li ng-show="isLoggedIn()"><a>{{ currentUser() }}</a></li>
       <li ng-show="isLoggedIn()"><a href="" ng-click="logOut()">Log Out</a></li>
       <li ng-hide="isLoggedIn()"><a href="/#/login">Log In</a></li>
       <li ng-hide="isLoggedIn()"><a href="/#/register">Register</a></li>
@@ -45,9 +44,8 @@
 
     </div>
 
-<div>
 <ui-view></ui-view>
-</div>
+
 
 <div class="fixed" id="bottom"></div>
 
@@ -79,25 +77,25 @@
 <p>On this website, you can find the latest news on The Hollow Heart, including the latest videos and planned events.</p>
 
 
-<a href="/#/events">Events</a>
+<a href="/#/events">Concerts</a>
+<span>|</span>
 <a href="/#/videos">Videos</a>
 
 </div>
-
-<copyright info="2015 The Hollow Heart"></copyright>
 
 </script>
 
 
 <script type="text/ng-template" id="/events.html">
 
-</div>
-
 <div id="events">
+
 
 <div ng-repeat="eventx in events" ng-if="currentID==$index">
 
 <h1>{{eventx.title}}</h1>
+
+<hr>
 
 <h2>{{eventx.playDate}}</h2>
 
@@ -145,10 +143,12 @@
 
 
 
+
 <div ng-repeat="video in videos" ng-if="currentID== $index">
 
 <div class="left"  id="info">
 <h3> {{video.title}}</h3>
+<hr>
 
 <div ng-show="video.artist!=null">
 <h4>Creator :</h4>
@@ -207,7 +207,10 @@
 
 
 <script type="text/ng-template" id="/register.html">
-  <div class="page-header">
+
+<div class="loginregister">
+
+<div class="page-header">
     <h1>Welcome to The Hollow Heart </h1>
   </div>
 
@@ -233,10 +236,16 @@
     </div>
     <button type="submit" class="btn btn-primary">Register</button>
   </form>
+
+</div>
+  
 </script>
 
 <script type="text/ng-template" id="/login.html">
-  <div class="page-header">
+
+<div class="loginregister">
+
+<div class="page-header">
     <h1>Welcome to the Hollow Heart !</h1>
   </div>
 
@@ -262,6 +271,10 @@
     </div>
     <button type="submit" class="btn btn-primary">Log In</button>
   </form>
+
+
+</div>
+  
   </script>
 
 
