@@ -6,6 +6,8 @@ app.controller('EventCTRL', [
 		$scope.events = eventService.events;
         $scope.isLoggedIn = auth.isLoggedIn;
         $scope.currentID =0;
+        $scope.hideNext=false;
+        $scope.hidePrevious=true;
 
 
 		$scope.addEvent = function(){
@@ -32,21 +34,25 @@ app.controller('EventCTRL', [
         };
 
         $scope.isDisabledLeft = function(){
-            var result = false;
+            
             if($scope.currentID ===0){
-                result = true
+                hidePrevious = true;
+            } else {
+                hidePrevious= false;
             }
 
-            return result;
+            return hidePrevious;
         }
 
         $scope.isDisabledRight = function(){
-            var result = false;
-            if($scope.currentID ===$scope.events.length-1){
-                result = true
+           
+            if($scope.currentID ===$scope.videos.length-1){
+                hideNext = true;
+            } else {
+                hideNext=false;
             }
 
-            return result;
+            return hideNext;
         }
 
 
