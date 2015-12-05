@@ -1,10 +1,10 @@
 app.controller('EventCTRL', [
 	'$scope',
     'eventService',
-	function($scope, eventService){
-
-        eventService.getAll();
+    'auth',
+	function($scope, eventService,auth){
 		$scope.events = eventService.events;
+        $scope.isLoggedIn = auth.isLoggedIn;
         $scope.currentID =0;
 
 
@@ -42,7 +42,7 @@ app.controller('EventCTRL', [
 
         $scope.isDisabledRight = function(){
             var result = false;
-            if($scope.currentID ===$scope.videos.length-1){
+            if($scope.currentID ===$scope.events.length-1){
                 result = true
             }
 
@@ -53,3 +53,21 @@ app.controller('EventCTRL', [
 
 	}]);
 
+app.config(['$stateProvider','$urlRouterProvider',
+            function($stateProvider,$urlRouterProvider){
+
+                $stateProvider.state('events',{
+                    url: '/events',
+                    templateUrl: '/events.html',
+                    controller: 'EventCTRL',
+                    resolve: {
+                        eventsPromise: ['eventService',function(eventService){
+
+                            console.log(eventService.events);
+                            return eventService.getAll();
+
+                        }]
+                    }
+                    
+                })
+            }]);

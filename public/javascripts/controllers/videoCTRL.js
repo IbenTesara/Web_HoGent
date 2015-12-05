@@ -55,3 +55,19 @@ app.controller('VideoCTRL', [
 
 	}]);
 
+app.config(['$stateProvider','$urlRouterProvider',
+            function($stateProvider,$urlRouterProvider){
+
+                $stateProvider.state('videos',{
+                    url: '/videos',
+                    templateUrl: '/videos.html',
+                    controller: 'VideoCTRL',
+                    resolve: {
+                        videoPromise: ['videoService',function(videoService){
+
+                            return videoService.getAll();
+
+                        }]
+                    }
+                })
+            }]);

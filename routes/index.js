@@ -33,7 +33,7 @@ router.post('/videos',auth, function(req, res, next) {
   });
 });
 
-router.get('/events',auth, function(req, res, next) {
+router.get('/events', function(req, res, next) {
   EventPost.find(function(err, events){
     if(err){ return next(err); }
 
@@ -42,7 +42,7 @@ router.get('/events',auth, function(req, res, next) {
 });
 
 
-router.post('/events', function(req, res, next) {
+router.post('/events',auth, function(req, res, next) {
   var eventx = new EventPost(req.body);
 
   eventx.save(function(err, events){

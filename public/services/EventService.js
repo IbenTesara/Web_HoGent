@@ -1,8 +1,8 @@
 app.factory('eventService', ['$http','auth', function($http,auth){
 
-	var eventServiceFactory={
-		events:[]
-	}
+  var eventServiceFactory={
+    events : []
+  }
 
 
    function getAll() {
@@ -11,13 +11,13 @@ app.factory('eventService', ['$http','auth', function($http,auth){
     });
   };
 
-   function create(eventx) {
-  return $http.post('/events', eventx,{
+   function create(eve) {
+  return $http.post('/events', eve,{
     headers: {Authorization: 'Bearer '+auth.getToken()}
   }
 
-    ).then(function(respone){
-    eventServiceFactory.events.push(respone.data);
+    ).then(function(response){
+    eventServiceFactory.events.push(response.data);
   });
 };
 
